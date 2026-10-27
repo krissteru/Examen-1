@@ -11,4 +11,16 @@ use RuntimeException;
  */
 class ReglaNegocioException extends RuntimeException
 {
+    protected $codigo;
+
+    public function __construct($message, $codigo = 409)
+    {
+        parent::__construct($message, (int) $codigo);
+        $this->codigo = $codigo;
+    }
+
+    public function getCodigo()
+    {
+        return $this->codigo;
+    }
 }
